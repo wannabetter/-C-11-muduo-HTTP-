@@ -1,7 +1,3 @@
-//
-// Created by DELL on 2024/1/17.
-//
-
 #include "HTTP/http.h"
 
 std::string RequestStr(const HttpRequest &req) {

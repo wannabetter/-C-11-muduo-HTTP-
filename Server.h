@@ -1,7 +1,3 @@
-//
-// Created by DELL on 2024/1/15.
-//
-
 #ifndef REACTOR_SERVER_H
 #define REACTOR_SERVER_H
 
@@ -239,9 +235,7 @@ public:
 
     int Accept() {
         int newfd = accept(_sockfd, NULL, NULL);
-        assert(newfd >= 0);
         if (newfd < 0) {
-            ERR_LOG("SOCKET ACCEPT FAILED!");
             return -1;
         }
         return newfd;
@@ -1063,6 +1057,7 @@ private:
     void HandleRead() {
         int newfd = _socket.Accept();
         if (newfd < 0) {
+            ERR_LOG("Accept Failed");
             return;
         }
         if (_accept_callback) _accept_callback(newfd);

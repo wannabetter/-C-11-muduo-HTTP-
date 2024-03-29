@@ -1,7 +1,3 @@
-//
-// Created by DELL on 2024/1/17.
-//
-
 #ifndef REACTOR_HTTP_H
 #define REACTOR_HTTP_H
 
@@ -632,6 +628,7 @@ private:
         rsp_str << rsp._body;
         conn->Send(rsp_str.str().c_str(), rsp_str.str().size());
     }
+
 
     bool IsFileHandler(const HttpRequest &req) {
         if (_basedir.empty()) {
